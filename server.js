@@ -16,3 +16,12 @@ app.get('/test', (request, response) => {
 })
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
+
+app.get('*', (request, response) =>  {
+  response.status(404).send('Not available');
+})
+
+app.use((error, request, response, next) => {
+  console.log(error.message);
+  response.status(500).send(error.message);
+})
