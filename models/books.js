@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
-    title: String,
-    author: String,
-    status: String,
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    status: { type: String, required: true },
 })
