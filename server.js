@@ -15,6 +15,7 @@ const app = express();
 
 // middleware
 app.use(cors());
+app.use(express.json());
 
 // define PORT validate env is working
 const PORT = process.env.PORT || 3001;
@@ -50,6 +51,18 @@ async function getBooks(request, response, next){
   }
 }
 
+/** POST */
+app.post('/books', addBook);
+
+async function addBook(request, response, next){
+  console.log(request.body);
+  try {
+    let createdBook = await Book.create(request.body);
+    response.status(200).send('test from post endpoint');
+  } catch (error) {
+    next(error);
+  }
+}
 
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
