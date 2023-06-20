@@ -7,6 +7,7 @@ const bookSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
     author: { type: String, required: true },
-    status: { type: Boolean, required: true },
+    status: { type: Boolean, required: true }, //did you read it? T = Yes
 });
 
+const Book = mongoose.model('book', bookSchema);
