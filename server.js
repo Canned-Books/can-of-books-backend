@@ -39,7 +39,7 @@ db.once('open', function () {
 
 app.get('/books', getBooks);
 
-async function getBooks(request, response, next){
+async function getBooks(request, response, next) {
   try {
     // TODO: GET ALL Books FROM THE DB
     let allBooks = await Book.find({});
@@ -54,7 +54,7 @@ async function getBooks(request, response, next){
 /** POST */
 app.post('/books', addBook);
 
-async function addBook(request, response, next){
+async function addBook(request, response, next) {
   console.log(request.body);
   try {
     let createdBook = await Book.create(request.body);
@@ -63,6 +63,28 @@ async function addBook(request, response, next){
     next(error);
   }
 }
+
+// ENDPOINT TO DELETE BOOK
+deleteBook = async (id) => {
+  try {
+    // TODO: build the url for axios 
+    let url = `${process.env.REACT_APP_SERVER}/books/${id}`
+
+    await axios.delete(url);
+
+    // TODO: update state after cat was deleted
+    let updatedBooks = this.state.Books.filter(book => book._id !== id);
+
+    this.setState({
+      cats: updatedBooks
+    })
+
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+
 
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
