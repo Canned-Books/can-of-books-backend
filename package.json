@@ -3,24 +3,25 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongoose": "^7.3.0"
+    "mongoose": "^7.3.0",
+    "nodemon": "^2.0.22"
   },
   "scripts": {
     "start": "node server.js"
   },
-  "name": "cats-backend-301d88",
+  "name": "can-of-books-backend",
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arpatterson31/cats-backend-301d88.git"
+    "url": "https://github.com/Canned-Books/can-of-books-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/arpatterson31/cats-backend-301d88/issues"
+    "url": "https://github.com/Canned-Books/can-of-books-backend/issues"
   },
-  "homepage": "https://github.com/arpatterson31/cats-backend-301d88#readme"
+  "homepage": "https://github.com/Canned-Books/can-of-books-backend#readme"
 }

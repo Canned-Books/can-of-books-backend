@@ -34,16 +34,16 @@ db.once('open', function () {
 });
 
 
-// *** ENDPOINT TO RETREIVE ALL CATS FROM THE DB ****
+// *** ENDPOINT TO RETREIVE ALL Books FROM THE DB ****
 
 app.get('/books', getBooks);
 
 async function getBooks(request, response, next){
   try {
-    // TODO: GET ALL CATS FROM THE DB
+    // TODO: GET ALL Books FROM THE DB
     let allBooks = await Book.find({});
 
-    // TODO: SEND THOSE CATS ON THE RESPONSE
+    // TODO: SEND THOSE Books ON THE RESPONSE
     response.status(200).send(allBooks);
   } catch (error) {
     next(error);
