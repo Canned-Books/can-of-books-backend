@@ -10,4 +10,7 @@ const bookSchema = new Schema({
     status: { type: Boolean, required: true }, //did you read it? T = Yes
 });
 
+//this is tied to the book-db in the .env file
 const Book = mongoose.model('book', bookSchema);
+
+module.exports = Book; //should be good here

@@ -2,52 +2,52 @@
 
 const mongoose = require('mongoose');
 
-require('dotenv').config();
-mongoose.connect(process.env.DB_URL);
+//connect to our database
+require('dotenv').config(); //this requires our .env file for its configuration
+mongoose.connect(process.env.DB_URL); //again this is in the .env file
 
+//pulls from our models folder
 const Book = require('./models/books.js');
 
 
 /*
-  name: { type: String, required: true },
-  color: { type: String, required: true },
-  age: { type: Number, required: true },
-  location: { type: String, required: true },
-  spayNeuter: { type: Boolean, required: true }
+  const bookSchema = new Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    author: { type: String, required: true },
+    status: { type: Boolean, required: true }, //did you read it? T = Yes
+});
 */
 
 
 async function seed() {
 
-  await Cat.create({
-    name: 'Ronald',
-    color: 'orange tabby',
-    age: 11,
-    location: 'Seattle',
-    spayNeuter: true
+  await Book.create({
+    title: 'The Grapes of Wrath',
+    description: 'A book about grapes and wrath',
+    author: 'Frank Galati',
+    status: false
   });
 
-  console.log('Ronald was created!');
+  console.log('The Grapes of Wrath was created!');
 
-  await Cat.create({
-    name: 'Karl',
-    color: 'black and grey tabby',
-    age: 10,
-    location: 'Rainbow bridge',
-    spayNeuter: true
+  await Book.create({
+    title: "Man's Search for Meaning",
+    description: 'Surviving the horrors of WW2',
+    author: 'Viktor Frankl',
+    status: true
   });
 
-  console.log('Karl was created');
+  console.log('Mans Search for Meaning was created');
 
-  await Cat.create({
-    name: 'Victor',
-    color: 'black and grey tabby',
-    age: 13,
-    location: 'Rainbow bridge',
-    spayNeuter: true
+  await Book.create({
+    title: 'Do Androids Dream of Electric Sheep',
+    description: 'Does artificial intelligence create consciousness',
+    author: 'Phillip K Dick',
+    status: true
   });
 
-  console.log('Victor was created');
+  console.log('Do Androids Dream of Electric Sheep was created');
 
   mongoose.disconnect();
 }
