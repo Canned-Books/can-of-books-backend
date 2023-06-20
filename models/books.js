@@ -7,4 +7,4 @@ const bookSchema = new Schema({
     title: String,
     author: String,
     status: String,
-})
+});
