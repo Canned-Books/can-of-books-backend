@@ -15,6 +15,7 @@ const app = express();
 
 // middleware
 app.use(cors());
+app.use(express.json());
 
 // define PORT validate env is working
 const PORT = process.env.PORT || 3001;
@@ -38,7 +39,7 @@ db.once('open', function () {
 
 app.get('/books', getBooks);
 
-async function getBooks(request, response, next){
+async function getBooks(request, response, next) {
   try {
     // TODO: GET ALL Books FROM THE DB
     let allBooks = await Book.find({});
@@ -49,6 +50,37 @@ async function getBooks(request, response, next){
     next(error);
   }
 }
+
+/** POST */
+app.post('/books', addBook);
+
+async function addBook(request, response, next) {
+  console.log(request.body);
+  try {
+    let createdBook = await Book.create(request.body);
+    response.status(200).send('test from post endpoint');
+  } catch (error) {
+    next(error);
+  }
+}
+
+// ENDPOINT TO DELETE BOOK
+app.delete('/books/:id', deleteBook);
+
+async function deleteBook(request, response, next) {
+  try {
+    const { id } = request.params;
+
+    // TODO: Delete the book with the provided ID from the database
+    await Book.findByIdAndDelete(id);
+
+    // TODO: Send a success response
+    response.status(200).send('Book deleted successfully');
+  } catch (error) {
+    next(error);
+  }
+}
+
 
 
 app.get('*', (request, response) => {
