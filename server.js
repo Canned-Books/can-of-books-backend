@@ -65,22 +65,19 @@ async function addBook(request, response, next) {
 }
 
 // ENDPOINT TO DELETE BOOK
-deleteBook = async (id) => {
+app.delete('/books/:id', deleteBook);
+
+async function deleteBook(request, response, next) {
   try {
-    // TODO: build the url for axios 
-    let url = `${process.env.REACT_APP_SERVER}/books/${id}`
+    const { id } = request.params;
 
-    await axios.delete(url);
+    // TODO: Delete the book with the provided ID from the database
+    await Book.findByIdAndDelete(id);
 
-    // TODO: update state after cat was deleted
-    let updatedBooks = this.state.Books.filter(book => book._id !== id);
-
-    this.setState({
-      cats: updatedBooks
-    })
-
+    // TODO: Send a success response
+    response.status(200).send('Book deleted successfully');
   } catch (error) {
-    console.log(error.message)
+    next(error);
   }
 }
 
