@@ -12,7 +12,7 @@ async function seed() {
 await Book.create({
     title: 'Do Androids Dream of Electric Sheep?',
     author: 'Philip K. Dick',
-    description: 'Dystopian sci-fi nove exploring consciousness in AI',
+    description: "Rick Deckard struggles as a bounty hunter in San Francisco to destroy a new breed of androids nearly undetectable to humans. However, he finds himself battling with empathy for the supposed lifeless beings—especially when he must team up with one to achieve his goal.",
     status: 'true',
     //imageUrl: 'https://m.media-amazon.com/images/I/4120duYNDSL._AC_UF1000,1000_QL80_.jpg'
 });
