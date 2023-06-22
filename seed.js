@@ -10,31 +10,36 @@ const Book = require('./models/book.js');
 async function seed() {
 
 await Book.create({
-    title: 'Life of Pi',
-    description: 'Life of Pi is a masterful and utterly original novel that is at once the story of a young castaway who faces immeasurable hardships on the high seas, and a meditation on religion, faith, art and life that is as witty as it is profound',
-    status: 'available',
-    imageUrl: 'https://m.media-amazon.com/images/I/4120duYNDSL._AC_UF1000,1000_QL80_.jpg'
+    title: 'Do Androids Dream of Electric Sheep?',
+    author: 'Philip K. Dick',
+    description: 'Dystopian sci-fi nove exploring consciousness in AI',
+    status: 'true',
+    //imageUrl: 'https://m.media-amazon.com/images/I/4120duYNDSL._AC_UF1000,1000_QL80_.jpg'
 });
-
-console.log('Life of Pi worked!');
 
 await Book.create({
-    title: 'White Fang',
-    description: 'White Fang” is a 1906 novel by American writer Jack London that tells the tale of a wild wolfdog who resides in the Yukon Territory and the Northwest Territories of Canada during the Klondike Gold Rush in the 1890s. Presented from the four-legged protagonists point of view, it is the charming story of White Fangs journey from the wilderness to domestication',
-    status: 'available',
-    imageUrl: 'https://books.google.com/books/publisher/content?id=Xd6dDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0Q4aHfBNb5SEA8Fvurrzuunlbxew&w=1280'
+    title: "Man's Search for Meaning",
+    author: 'Viktor E. Frankl',
+    description: "Man's Search for Meaning is a 1946 book by Viktor Frankl chronicling his experiences as a prisoner in Nazi concentration camps during World War II, and describing his psychotherapeutic method, which involved identifying a purpose in life to feel positive about, and then immersively imagining that outcome.",
+    status: 'false',
+    //imageUrl: 'https://books.google.com/books/publisher/content?id=Xd6dDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0Q4aHfBNb5SEA8Fvurrzuunlbxew&w=1280'
 });
-
-console.log('White Fang Worked!');
 
 await Book.create({
-    title: 'Red Mars',
-    description: 'Winner of the Nebula Award for Best Novel - Discover the novel that launched one of science fictions most beloved, acclaimed, and awarded trilogies: Kim Stanley Robinsons masterly near-future chronicle of interplanetary colonization.',
-    status: 'available',
-    imageUrl: 'https://m.media-amazon.com/images/I/71q2n5R+yPL._AC_UF1000,1000_QL80_.jpg'
+    title: 'The Idiot',
+    author: 'Fyodor Dostoevsky',
+    description: "The title is an ironic reference to the central character of the novel, Prince Lev Nikolayevich Myshkin, a young man whose goodness, open-hearted simplicity and guilelessness lead many of the more worldly characters he encounters to mistakenly assume that he lacks intelligence and insight. In the character of Prince Myshkin, Dostoevsky set himself the task of depicting 'the positively good and beautiful man.'",
+    status: 'true',
+    //imageUrl: 'https://m.media-amazon.com/images/I/71q2n5R+yPL._AC_UF1000,1000_QL80_.jpg'
 });
 
-console.log('Red Mars Worked!');
+await Book.create({
+    title: 'The Princess Bride',
+    author: 'William Goldman',
+    description: 'Beautiful, flaxen-haired Buttercup has fallen for Westley, the farm boy, and when he departs to make his fortune, she vows never to love another. So when she hears that his ship has been captured by the Dread Pirate Roberts - who never leaves survivors - her heart is broken.',
+    status: 'true',
+    //imageUrl: 'https://m.media-amazon.com/images/I/71q2n5R+yPL._AC_UF1000,1000_QL80_.jpg'
+});
 
 mongoose.disconnect();
 }

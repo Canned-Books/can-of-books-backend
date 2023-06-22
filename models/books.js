@@ -8,6 +8,7 @@ const bookSchema = new Schema({
     description: { type: String, required: true },
     author: { type: String, required: true },
     status: { type: Boolean, required: true }, //did you read it? T = Yes
+    //imageUrl: { type: String, required: true }
 });
 
 //this is tied to the book-db in the .env file

@@ -4,7 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const Book = require('./models/book');
+const Book = require('./models/books');
 
 const app = express();
 app.use(cors());
@@ -72,19 +72,11 @@ async function deleteBook(request, response, next){
 
 app.put('/books/:bookID', updateBook);
 
-
 async function updateBook(request, response, next){
   try {
 
     let id = request.params.bookID;
     let data = request.body;
-    // let optionsObj = { new: true, overwrite: true };
-
-    // ** 3 args for model method
-    // ** 1st - is the id
-    // ** 2nd - is the data
-    // ** 3rd - options object - { new: true, overwrite: true }
-
     let updatedBook = await Book.findByIdAndUpdate(id, data, { new: true, overwrite: true });
 
     response.status(200).send(updatedBook);
