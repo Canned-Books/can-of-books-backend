@@ -2,54 +2,41 @@
 
 const mongoose = require('mongoose');
 
-//connect to our database
-require('dotenv').config(); //this requires our .env file for its configuration
-mongoose.connect(process.env.DB_URL); //again this is in the .env file
+require('dotenv').config();
+mongoose.connect(process.env.DB_URL);
 
-//pulls from our models folder
-const Book = require('./models/books.js');
-
-
-/*
-  const bookSchema = new Schema({
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    author: { type: String, required: true },
-    status: { type: Boolean, required: true }, //did you read it? T = Yes
-});
-*/
-
+const Book = require('./models/book.js');
 
 async function seed() {
 
-  await Book.create({
-    title: 'The Grapes of Wrath',
-    description: 'A book about grapes and wrath',
-    author: 'Frank Galati',
-    status: false
-  });
+await Book.create({
+    title: 'Life of Pi',
+    description: 'Life of Pi is a masterful and utterly original novel that is at once the story of a young castaway who faces immeasurable hardships on the high seas, and a meditation on religion, faith, art and life that is as witty as it is profound',
+    status: 'available',
+    imageUrl: 'https://m.media-amazon.com/images/I/4120duYNDSL._AC_UF1000,1000_QL80_.jpg'
+});
 
-  console.log('The Grapes of Wrath was created!');
+console.log('Life of Pi worked!');
 
-  await Book.create({
-    title: "Man's Search for Meaning",
-    description: 'Surviving the horrors of WW2',
-    author: 'Viktor Frankl',
-    status: true
-  });
+await Book.create({
+    title: 'White Fang',
+    description: 'White Fang” is a 1906 novel by American writer Jack London that tells the tale of a wild wolfdog who resides in the Yukon Territory and the Northwest Territories of Canada during the Klondike Gold Rush in the 1890s. Presented from the four-legged protagonists point of view, it is the charming story of White Fangs journey from the wilderness to domestication',
+    status: 'available',
+    imageUrl: 'https://books.google.com/books/publisher/content?id=Xd6dDwAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0Q4aHfBNb5SEA8Fvurrzuunlbxew&w=1280'
+});
 
-  console.log('Mans Search for Meaning was created');
+console.log('White Fang Worked!');
 
-  await Book.create({
-    title: 'Do Androids Dream of Electric Sheep',
-    description: 'Does artificial intelligence create consciousness',
-    author: 'Phillip K Dick',
-    status: true
-  });
+await Book.create({
+    title: 'Red Mars',
+    description: 'Winner of the Nebula Award for Best Novel - Discover the novel that launched one of science fictions most beloved, acclaimed, and awarded trilogies: Kim Stanley Robinsons masterly near-future chronicle of interplanetary colonization.',
+    status: 'available',
+    imageUrl: 'https://m.media-amazon.com/images/I/71q2n5R+yPL._AC_UF1000,1000_QL80_.jpg'
+});
 
-  console.log('Do Androids Dream of Electric Sheep was created');
+console.log('Red Mars Worked!');
 
-  mongoose.disconnect();
+mongoose.disconnect();
 }
 
 seed();
